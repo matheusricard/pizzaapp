@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+
+class PizzaHome extends StatelessWidget {
+  const PizzaHome({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Obtém a altura e a largura da tela
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: screenHeight, // Usa a altura da tela
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent.shade700,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: screenHeight, // Usa a altura da tela
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent.shade700,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Center(
+              child: Image.asset(
+                'images/pizza.png',
+                width: screenWidth / 1.5, // Usa a largura da tela
+                height: screenHeight / 1.5, // Usa a altura da tela
+              ),
+            ),
+            Positioned(
+              top: -40,
+              left: 40,
+              child: Image.asset(
+                'images/npizza.png',
+                width: screenWidth / 1.2, // Usa a largura da tela
+                height: screenHeight / 1.2, // Usa a altura da tela
+              ),
+            ),
+            Positioned(
+              bottom: 20,
+              left: 10,
+              right: 10,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Ação a ser executada ao pressionar o botão
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.yellowAccent[700],
+                  fixedSize: Size(screenWidth / 50, 50) // Usa a largura da tela
+                ),
+                child: Text('Entrar'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
