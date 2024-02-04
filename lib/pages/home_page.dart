@@ -50,9 +50,9 @@ class PizzaHome extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 20,
-              left: 10,
-              right: 10,
+              bottom: 50,
+              left: 100,
+              right: 100,
               child: ElevatedButton(
                 onPressed: () {
                   // Ação a ser executada ao pressionar o botão
