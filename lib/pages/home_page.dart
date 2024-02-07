@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import "package:pizzaapp/pages/segunda_tela.dart";
+
 
 class PizzaHome extends StatelessWidget {
   const PizzaHome({Key? key}) : super(key: key);
@@ -55,11 +57,15 @@ class PizzaHome extends StatelessWidget {
               right: 100,
               child: ElevatedButton(
                 onPressed: () {
-                  // Ação a ser executada ao pressionar o botão
+                  // Navegação para outra tela ao pressionar o botão
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SegundaTela()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.yellowAccent[700],
-                  fixedSize: Size(screenWidth / 50, 50) // Usa a largura da tela
+                  fixedSize: Size(screenWidth / 2, 50), // Usa a largura da tela
                 ),
                 child: Text('Entrar'),
               ),
@@ -70,3 +76,4 @@ class PizzaHome extends StatelessWidget {
     );
   }
 }
+
