@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:pizzaapp/pages/home_page.dart";
 import "package:pizzaapp/pages/segunda_tela.dart";
+import "package:pizzaapp/pages/terceira_tela.dart";
 
 void main() {
   runApp(const MyApp());
