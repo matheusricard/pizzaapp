@@ -14,10 +14,17 @@ class Pizzaa {
   });
 }
 
-class TerceiraTela extends StatelessWidget {
+class TerceiraTela extends StatefulWidget {
   final Pizzaa pizza;
 
   TerceiraTela({required this.pizza});
+
+  @override
+  _TerceiraTelaState createState() => _TerceiraTelaState();
+}
+
+class _TerceiraTelaState extends State<TerceiraTela> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -69,32 +76,57 @@ class TerceiraTela extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              pizza.title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            Image.asset(
-              pizza.imagePath,
-              width: 200,
-              height: 200,
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Descrição: ${pizza.description}',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Preço: ${pizza.preco}',
-              style: TextStyle(fontSize: 18),
+      body: Container(
+        margin: EdgeInsets.all(20),
+        width: 400,
+        height: 380,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.6),
+              spreadRadius: 5,
+              blurRadius: 7,
             ),
           ],
         ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 15),
+              Text(
+                widget.pizza.title,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+              SizedBox(height: 15),
+              Image.asset(
+                widget.pizza.imagePath,
+                width: 200,
+                height: 200,
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  'Descrição: ${widget.pizza.description}',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                ),
+              ),
+              SizedBox(height: 10),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            isChecked = !isChecked;
+          });
+        },
+        child: Icon(Icons.check),
+        backgroundColor: isChecked ? Colors.green : Colors.grey,
       ),
     );
   }
